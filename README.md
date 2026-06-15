@@ -297,8 +297,8 @@ kuangkuang-gaokao-perspective/
 
 ## 📞 联系方式
 
-- 🐛 问题反馈：[GitHub Issues](https://github.com/alchaincyf/kuangkuang-gaokao-perspective/issues)
-- 💬 讨论交流：[GitHub Discussions](https://github.com/alchaincyf/kuangkuang-gaokao-perspective/discussions)
+- 🐛 问题反馈：[GitHub Issues](https://github.com/JiangKaslana/kuangkuang.skill/issue)
+- 💬 讨论交流：[GitHub Discussions](https://github.com/JiangKaslana/kuangkuang.skill/discussions)
 - 📧 邮件联系：[在这里填写你的邮箱]
 
 ---
