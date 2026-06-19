@@ -79,7 +79,7 @@
 
 ```bash
 # 通过 Agent Skills 标准安装
-npx skills add alchaincyf/kuangkuang-gaokao-perspective
+npx skills add JiangKaslana/kuangkuang.skill
 ```
 
 ### 方式二：手动安装
@@ -96,13 +96,13 @@ npx skills add alchaincyf/kuangkuang-gaokao-perspective
 **手动安装步骤**：
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/alchaincyf/kuangkuang-gaokao-perspective.git
+git clone https://github.com/JiangKaslana/kuangkuang.skill.git
 
 # 2. 复制到skills目录
-cp -r kuangkuang-gaokao-perspective ~/.claude/skills/
+cp -r kuangkuang.skill ~/.claude/skills/
 
 # 3. 验证安装
-ls ~/.claude/skills/kuangkuang-gaokao-perspective/SKILL.md
+ls ~/.claude/skills/kuangkuang.skill/SKILL.md
 ```
 
 ---
