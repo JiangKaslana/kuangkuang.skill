@@ -1,0 +1,7 @@
+interface:
+  display_name: "框框高考志愿"
+  short_description: "高考志愿填报决策、避坑、专业和院校筛选顾问"
+  default_prompt: "Use $kuangkuang-gaokao to analyze my gaokao application tradeoff with a practical, risk-aware framework."
+
+policy:
+  allow_implicit_invocation: true
