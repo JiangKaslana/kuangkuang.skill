@@ -1,224 +1,147 @@
-# Kuangkuang Gaokao Perspective - College Admission Advisor Skill
+# Kuangkuang Gaokao Application Advisor Skill
 
-> *"College application might be the first time you truly take control of your destiny's steering wheel"*
+> "Gaokao application may be the first time you truly hold the steering wheel of your own life."
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Standard-green)](https://agentskills.io)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](CHANGELOG.md)
 
-An AI Skill based on the college admission methodology of **Kuangkuang** (取景框看世界), a Bilibili content creator. This skill distills 10 years of educational experience and public welfare sharing into a systematic decision-making framework, helping students from ordinary families make informed college application choices.
+An Agent Skill based on the gaokao application methodology of **取景框看世界 / Kuangkuang**. It turns decision frameworks, risk checks, city/major/school tradeoffs, and 2026 subtitle-derived references into a progressively loaded advisor skill.
 
-[中文文档](README.md) | [Installation](#installation) | [Core Methodology](#core-methodology) | [Contributing](CONTRIBUTING.md)
+[中文](README.md) | [Installation](#installation) | [Reference Database](#reference-database) | [Boundaries](#boundaries) | [Contributing](CONTRIBUTING.md)
 
----
+## What This Skill Does
 
-## 👨‍🎓 Who is Kuangkuang?
+This skill is not an "answer machine" that chooses applications for students. It helps an AI:
 
-**Kuangkuang (取景框看世界)**:
-- 🎓 PhD from Fudan University, from an ordinary working-class family in Chongqing
-- 👨‍🏫 10 years of educational experience (2015 counselor → 2025 full-time education)
-- 🎯 Core Philosophy: **Systematic Thinking + Personalized Decision + Fault-Tolerant Orientation**
-- 💚 Mission: "Because I was once a child caught in the rain, I want to hold an umbrella for others"
-- 🆓 Committed to free public sharing, enabling students from ordinary families to make scientific college choices without paying expensive fees
+- Ask for high-impact facts first: province, subject selection, score/rank, admission mode, financial pressure, family resources, deep-study willingness, and major bottom line.
+- Analyze school, major, city, score-band, and admission-rule tradeoffs with Kuangkuang's risk-aware framework.
+- Load only the reference file needed for the current question.
+- Treat school, major, score, salary, ranking, and policy claims as leads that require official verification.
+- Keep the student's final decision ownership intact.
 
----
+## Core Models
 
-## 🧠 Core Methodology
+| Model | Purpose |
+|---|---|
+| Four self-positioning questions | Check finances, usable family resources, score tier, and learning/deep-study capacity |
+| Layered decisions | High score often values platform; middle/low score often values major; humanities value school network; engineering values major fit; medicine is region-bound |
+| Error-tolerance space | Prefer choices that preserve transfer, cross-exam, postgraduate, and career-pivot options |
+| Score-depth match | Avoid majors that require master's/PhD outcomes when the student cannot support that path |
+| Decision ownership | Parents, teachers, agencies, and AI are references; the student must own the final list |
 
-### 5 Mental Models
+## Installation
 
-| Model | Application | Core Logic |
-|-------|------------|------------|
-| **Fault-Tolerant Space Model** | Making major choices under uncertainty | Both major popularity and personal interests change; reserve room for adjustment |
-| **Tiered Decision Model** | Weighing university, major, and location | High scores: university > major; Low scores: major > university |
-| **Self-Positioning Model** | Essential self-awareness before application | Four-question framework: economic conditions, family resources, score range, learning ability |
-| **Decision Ownership Model** | Who makes the final decision | All external voices are references; you must make the final decision |
-| **Score-Education Matching Model** | Whether to choose majors requiring graduate education | High scores + willingness to pursue higher education = OK; Low scores + no such willingness = avoid |
-
-### 10 Decision Heuristics (Quick Judgment Rules)
-
-1. ⚡ **High scores aim for universities, low scores secure majors**
-2. ⚡ **Humanities: university matters; STEM: major matters; Medicine: location matters**
-3. ⚡ **Old Gaokao system: MUST accept major adjustments**
-4. ⚡ **Early batch admission is mutual selection, not a blind box**
-5. ⚡ **When reaching for universities, avoid popular majors**
-6. ⚡ **One character difference, world apart** (verify names word by word)
-7. ⚡ **Check Ministry of Education official list to avoid fake universities**
-8. ⚡ **Before enrollment, check three things: location, dorm, shower facilities**
-9. ⚡ **Ignoring admission regulations = risk of post-admission rejection**
-10. ⚡ **All advice is reference; you must make the final decision**
-
-[View full methodology →](SKILL.md)
-
----
-
-## 🚀 Installation
-
-### Method 1: One-Click Install (Recommended)
+### One-command install
 
 ```bash
-# Install via Agent Skills standard
-npx skills add alchaincyf/kuangkuang-gaokao-perspective
+npx skills add JiangKaslana/kuangkuang.skill
 ```
 
-### Method 2: Manual Installation
+### Manual install
 
-Copy `SKILL.md` to the appropriate directory based on your AI runtime:
-
-| AI Runtime | Installation Path |
-|-----------|-------------------|
-| **Claude Code** | `~/.claude/skills/kuangkuang-gaokao-perspective/` |
-| **Cursor** | `~/.cursor/skills/` or `.cursor/skills/` in project root |
-| **Windsurf** | `~/.windsurf/skills/` |
-| **Other Agent Skills-compatible tools** | Check tool documentation |
-
-**Manual installation steps**:
 ```bash
-# 1. Clone the repository
-git clone https://github.com/alchaincyf/kuangkuang-gaokao-perspective.git
-
-# 2. Copy to skills directory
-cp -r kuangkuang-gaokao-perspective ~/.claude/skills/
-
-# 3. Verify installation
-ls ~/.claude/skills/kuangkuang-gaokao-perspective/SKILL.md
+git clone https://github.com/JiangKaslana/kuangkuang.skill.git
+cp -r kuangkuang.skill ~/.codex/skills/kuangkuang-gaokao
 ```
 
----
+Verify:
 
-## 📖 Usage Guide
-
-### When to Activate This Skill
-
-This skill automatically activates when you encounter questions like:
-- "Which is more important: university or major?"
-- "How should I choose with my score?"
-- "My family has limited financial resources, what majors should I consider?"
-- "Should I fill in the early batch?"
-- "Will accepting major adjustments be a trap?"
-- "How to identify fake universities?"
-
-### Suitable Questions
-
-✅ **Good for**:
-- Decision-making frameworks and priority judgment for college applications
-- Weighing university-major-location trade-offs
-- Pitfall prevention guide and risk avoidance
-- Information channels and tool usage
-- Identifying and comparing specific majors/universities
-
-❌ **Not suitable for**:
-- "Choose a specific major for me" (you need to make your own decision)
-- "How will XX major's employment look in four years" (cannot predict the future)
-- "What am I suited to study" (requires individualized judgment based on your situation)
-
----
-
-## 📁 Repository Structure
-
-```
-kuangkuang-gaokao-perspective/
-├── SKILL.md                           # Core skill file (AI loads this)
-├── README.md                          # Documentation (Chinese)
-├── README_EN.md                       # Documentation (English)
-├── LICENSE                            # MIT License
-├── CONTRIBUTING.md                    # Contributing guide
-├── CHANGELOG.md                       # Version history
-├── examples/                          # Dialogue examples
-├── references/                        # Source materials and research
-│   ├── research/                      # 6 research reports
-│   └── sources/transcripts/           # 5 video transcript files
-└── .gitignore                         # Git ignore configuration
+```bash
+ls ~/.codex/skills/kuangkuang-gaokao/SKILL.md
 ```
 
----
+For Claude Code, Cursor, Windsurf, or other Agent Skills runtimes, copy the repository into the relevant skills directory.
 
-## 📊 Data Sources
+## Reference Database
 
-### Original Materials
+`SKILL.md` is now a lightweight navigation entry. It keeps triggering metadata, workflow, hard rules, and routing instructions. Detailed knowledge lives under `references/`.
 
-This skill is based on 5 college admission-themed videos released by Kuangkuang in 2025:
+```text
+kuangkuang.skill/
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+├── examples/
+├── references/
+│   ├── database/
+│   │   ├── 00-index.md
+│   │   ├── application-workflow-2026.md
+│   │   ├── city-selection-2026.md
+│   │   ├── major-industry-guide.md
+│   │   ├── risk-checklist.md
+│   │   └── score-band-schools.md
+│   ├── research/
+│   │   ├── 01-core-methodology.md
+│   │   ├── 02-information-strategy.md
+│   │   ├── 03-expression-dna.md
+│   │   ├── 04-values-mission.md
+│   │   ├── 05-decision-heuristics.md
+│   │   └── 06-honest-boundaries.md
+│   └── sources/
+│       └── transcripts/
+│           └── 2026/
+└── README.md
+```
 
-1. **Complete Gaokao Admission Strategy** (3-hour comprehensive tutorial)
-2. **Admission Application Methodology**
-3. **Gaokao Admission Pitfall Prevention Guide**
-4. **Admission Information Channels**
-5. **Admission Video Navigation**
+### Database Files
 
-All video transcript files are stored in `references/sources/transcripts/`
+| File | Use for |
+|---|---|
+| `application-workflow-2026.md` | 2026 application workflow, tools, rank method, line-difference method, rank-conversion method, safety strategy, adjustment rules |
+| `city-selection-2026.md` | University city choice, industry opportunities, city/school/major tradeoffs |
+| `score-band-schools.md` | 450-620 undergraduate candidates and 300-500 vocational college candidates |
+| `major-industry-guide.md` | Ordinary-family major choice, SOE/public-sector paths, future industries and majors |
+| `risk-checklist.md` | Admission charter, adjustment, early batch, fake universities, final submission checks |
 
-### Distillation Method
+### Research Files
 
-Adopts the **[Nuwa.skill](https://github.com/alchaincyf/nuwa-skill)** distillation methodology:
+`references/research/` keeps the original distilled methodology: core models, information strategy, expression style, values, heuristics, and honest boundaries.
 
-1. **Material Collection**: Bilibili videos → transcript extraction
-2. **Deep Research**: 6-dimensional analysis
-3. **Structured Distillation**: Mental models + decision heuristics + toolbox + expression DNA
-4. **SKILL.md Writing**: Agent Skills standard-compliant executable file
+### Transcript Sources
 
-[View full research reports →](references/research/)
+New 2026 subtitle sources are archived in `references/sources/transcripts/2026/`, covering:
 
----
+- Full 2026 gaokao application workflow
+- Best cities for university study
+- 450-620 score-band undergraduate schools
+- 300-500 score-band vocational schools
+- Major choice for ordinary families
+- Future industries and majors
+- Application pitfalls
 
-## ⚠️ Limitations
+## Example Prompts
 
-### Applicable Scope
-- ✅ Regular Gaokao college admission (old and new Gaokao systems)
-- ✅ Students with autonomous decision-making awareness and willingness to research
-- ✅ Acknowledges uncertainty and emphasizes fault-tolerant thinking
+```text
+I am a Guangdong physics-chemistry-biology student, rank 48000. My family hopes I can work after undergrad. How should I compare electrical engineering, computer science, and automation?
+```
 
-### Clear Limitations
-1. **Cannot predict the future**: Major popularity and job markets are unpredictable four years out
-2. **Limited cognition**: Students, parents, and Kuangkuang himself all have cognitive limitations
-3. **Tool limitations**: Admission tools have fixed algorithms and cannot fully replace individual judgment
-4. **Assessment limitations**: MBTI/career assessments are for reference only, not decision-making
+```text
+I want to study in Hangzhou or Nanjing. My score is around a regular first-tier undergraduate range. Should I prefer electronic information or computer science?
+```
 
-**Core Principle**: This skill provides a decision-making framework, but the final decision must be yours.
+```text
+How should I handle reach/match/safety choices and adjustment in the "college + major group" admission mode?
+```
 
----
+## Boundaries
 
-## 🤝 Contributing
+- Do not promise admission outcomes.
+- Do not predict the job market four years from now with certainty.
+- Do not choose a major only from interest tests or MBTI.
+- Do not let AI, agencies, or parents replace the student's final decision.
+- Verify all schools, majors, salaries, rankings, admission rules, and special requirements through current-year official sources: provincial exam authority, 阳光高考, school admission websites, and admission charters.
 
-Contributions welcome! We especially need:
+## Contributing
 
-- 📝 **Updated materials**: New video transcripts from Kuangkuang, latest policy changes
-- 🧠 **Methodology improvements**: Identified framework gaps or new mental models
-- 🐛 **Issue reports**: Errors, outdated information, unclear expressions
-- 💡 **Case sharing**: Real, effective dialogue examples
+Contributions are welcome: new subtitles, policy updates, outdated information fixes, and realistic conversation examples. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Please read [Contributing Guide](CONTRIBUTING.md) for detailed process.
+Report issues at [GitHub Issues](https://github.com/JiangKaslana/kuangkuang.skill/issues).
 
----
+## License
 
-## 📄 License
+This project is licensed under the [MIT License](LICENSE).
 
-This project is open-sourced under [MIT License](LICENSE).
+## Thanks
 
-You are free to:
-- ✅ Use, copy, modify this skill
-- ✅ Use for personal or commercial purposes
-- ✅ Redistribute
-
-Only requirement:
-- 📌 Retain original author attribution
-- 📌 Include license copy
-
----
-
-## 🙏 Acknowledgments
-
-- Thanks to Bilibili creator **@取景框看世界 (Kuangkuang)** for years of public welfare sharing, lighting the way for countless students from ordinary families
-- Thanks to **[Nuwa.skill](https://github.com/alchaincyf/nuwa-skill)** for providing the Agent Skills distillation methodology
-- Thanks to all contributors who provided code, feedback, and shared cases for this project
-
----
-
-<p align="center">
-  <i>"Because I was once a child caught in the rain, I want to hold an umbrella for others."</i>
-  <br>
-  <i>—— Kuangkuang</i>
-</p>
-
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/alchaincyf">@alchaincyf</a>
-</p>
+- Thanks to Bilibili creator **@取景框看世界（框框）** for years of public-interest sharing.
+- Thanks to **[Nuwa.skill](https://github.com/alchaincyf/nuwa-skill)** for the Agent Skills distillation methodology reference.
